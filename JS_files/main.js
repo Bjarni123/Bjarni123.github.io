@@ -55,7 +55,7 @@ window.addEventListener('keydown', (e) => {
             output.innerText = 'Whatup';
         } else {
             for (let i = 0; i < islenskOrd.length; i++) {
-                if (input.value === islenskOrd[i]) {
+                if (input.value.toLowerCase() === islenskOrd[i]) {
                     output.innerText = 'That is a word';
                     break;
                 } else {
