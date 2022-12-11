@@ -3,10 +3,12 @@ const output = document.getElementById("output");
 const header = document.getElementById("header");
 const button = document.getElementById("button");
 const extra = document.getElementById("extraHelp");
+const extra2 = document.getElementById("extraHelp2");
 var counter = 0;
 var stafir = "";
 
 const islenskOrd = [
+    // 5 stafa orð
     "aðali",
     "aðall",
     "aðals",
@@ -41,7 +43,76 @@ const islenskOrd = [
     "aflið",
     "aflir",
     "aflóa",
-    "aflýs"
+    "aflýs",
+    
+   // 2 og 1 stafa orð
+    "að",
+    "af",
+    "ak",
+    "al",
+    "an",
+    "ar",
+    "as",
+    "at",
+    "ax",
+    "áa",
+    "ái",
+    "ál",
+    "ám",
+    "án",
+    "ár",
+    "ás",
+    "át",
+    "bí",
+    "bú",
+    "bý",
+    "bæ",
+    "dá",
+    "do",
+    "dó",
+    "dý",
+    "eð",
+    "ef",
+    "eg",
+    "ei",
+    "ek",
+    "el",
+    "em",
+    "en",
+    "er",
+    "es",
+    "et",
+    "á",
+    "í",
+    // 3 stafa orð
+    "aða",
+    "afa",
+    "afi",
+    "afl",
+    "aga",
+    "agg",
+    "agi",
+    "agl",
+    "agn",
+    "aís",
+    "aka",
+    "aki",
+    "akk",
+    "akt",
+    "ala",
+    "ali",
+    "als",
+    "alt",
+    "ama",
+    "ami",
+    "aml",
+    "amr",
+    "amt",
+    "ana",
+    "ani",
+    "ann",
+    "ans",
+    "apa",
 ]
 
 input.addEventListener('input', (e) => {
@@ -69,8 +140,14 @@ window.addEventListener('keydown', (e) => {
 
 button.addEventListener('click', (e) => {
     rndOrd = islenskOrd[Math.floor(Math.random() * islenskOrd.length)];
-
-    rndNumer2 = Math.floor(Math.random() * (rndOrd.length-1));
-    stafir = rndOrd.substring(rndNumer2, rndNumer2+2);
+    if (rndOrd.length <= 3) {
+        rndLength = Math.floor(Math.random() * (rndOrd.length)) + 1;
+    } else {
+        rndLength = (Math.floor(Math.random() * 3) + 1);
+    }
+    extra.innerText = rndLength;
+    extra2.innerText = rndOrd;
+    rndStartingPoint = Math.floor(Math.random() * (rndOrd.length-rndLength));
+    stafir = rndOrd.substring(rndStartingPoint, rndStartingPoint+rndLength);
     header.innerText = stafir;
 });
