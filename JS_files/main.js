@@ -139,6 +139,8 @@ window.addEventListener('keydown', (e) => {
 });
 
 button.addEventListener('click', (e) => {
+    input.value = '';
+    output.innerText = 'Whatup';
     rndOrd = islenskOrd[Math.floor(Math.random() * islenskOrd.length)];
     if (rndOrd.length <= 3) {
         rndLength = Math.floor(Math.random() * (rndOrd.length)) + 1;
